@@ -1,23 +1,17 @@
 import pandas as pd
 import numpy as np
-import seaborn as sns
+import matplotlib.pyplot as plt 
+import matplotlib.ticker as ticker 
+import datetime as dt 
+import matplotlib.dates as mdates 
 
-# import matplotlib.pyplot as plt
-# %matplotlib inline
-import warnings
-warnings.filterwarnings('ignore')
 # indlæs data
-fifadata = pd.read_csv("FIFA2018Statistics.csv")
+allStocks = pd.read_csv("sandp500/all_stocks_5yr.csv")
 
-# numerisk features
-numerisk_features = fifadata.select_dtypes(include = [np.number]).columns
-# af kategori
-kategorisk_features = fifadata.select_dtypes(include= [np.object]).columns
+# print alle kolonner
+allColumns = allStocks.columns
 
-# data beskrivelse
-databeskrivelse = fifadata.describe()
+# hent alle unikke navne, dvs henter alle de forskellige aktiers navne
+stockNames = allStocks.Name.unique()
 
-# Vi kan plotte med matplotlib 
-# fifadata.hist(figsize=(30,30))
-# grafer = plt.plot()
-# plt.show
+print(stockNames)
