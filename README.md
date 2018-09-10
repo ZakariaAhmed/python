@@ -5,7 +5,7 @@ Assignment 1
 i all_stocks_5yr.csv
 Udfra vores datasæt kan vi lave teknisk analyse og finde 50-Day High/Low ?
 
-src:https://www.investopedia.com/terms/h/high-low-index.asp
+https://www.investopedia.com/terms/h/high-low-index.asp
 
 Udfra vores datasæt kan vi lave teknisk analyse og finde 200-Day Simple Moving Average ?
 
