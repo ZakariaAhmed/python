@@ -1,6 +1,23 @@
 import requests as req
 import os 
 import sys
+from collections import Counter
+def textToJson(textData):
+    jsonData = []
+    with open(textData, 'r', encoding='utf8') as readFile:
+
+        for text in readFile:
+            textLine = text.rstrip(os.linesep)
+            splitTwo = textLine.split(" ", 2)
+            splitTimeStamp, splitName, splitMsg = splitTwo
+            jsonObject = {
+                "timestamp": splitTimeStamp,
+                "name":splitName[:-1],
+                "message":splitMsg
+            }
+            jsonData.append(jsonObject)
+    return jsonData
+
 
 # Downloads file 
 def download(from_url, to_file):
@@ -18,3 +35,16 @@ def download(from_url, to_file):
         print('Finished Downloading File ')
     #downloadURL = req.urlretrieve(bobRossURL, ) 
 
+def amountRuined(textToJson):
+    amount = 0
+    for data in textToJson:
+        textLine = data['name'] + ' ' + data['message']
+        listOfWords = textLine.split(' ')
+        for word in listOfWords:
+            if "ruined" in word.lower():
+                amount+=1
+    return amount
+
+def uniqueUsers(textToJson):
+    amount = len(set([data['name'] for data in textToJson]))
+    return amount
