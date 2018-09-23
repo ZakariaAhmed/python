@@ -2,6 +2,8 @@ import requests as req
 import os 
 import sys
 from collections import Counter
+import re 
+
 def textToJson(textData):
     jsonData = []
     with open(textData, 'r', encoding='utf8') as readFile:
@@ -48,3 +50,21 @@ def amountRuined(textToJson):
 def uniqueUsers(textToJson):
     amount = len(set([data['name'] for data in textToJson]))
     return amount
+
+def mostUsedWord(textToJson):
+    wordAmount = {}
+    for textLine in textToJson:
+        for word in textLine['message'].split(" ")[1:]:
+            word = word.replace("â€˜","")
+            word = word.replace("!","")
+            word = word.replace("â€œ","")
+            word = word.replace(".","")
+            word = word.replace(":","")
+            word = word.replace("\"","")
+            word = word.replace("*","")
+            word = word.replace(",","")
+            
+            wordAmount[word] = wordAmount.get(word, 0) + 1
+
+    wordCounter = Counter(wordAmount)
+    return wordCounter.most_common(1)[0]

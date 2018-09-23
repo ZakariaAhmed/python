@@ -18,4 +18,5 @@ if __name__ == '__main__':
     #linesOfData = len(hp.textToJson('BobRoss.txt'))
     jsonData = hp.textToJson('BobRoss.txt')
     print("How many lines does the .txt file have? = ", len(jsonData))
-    print("How many times does the .txt file write RUINED ? ", hp.amountRuined(jsonData))    
+    print("How many times does the .txt file write RUINED ? ", hp.amountRuined(jsonData)) 
+    print("What is most used word in the .txt file ? ", hp.mostUsedWord(jsonData))   
