@@ -68,3 +68,6 @@ def mostUsedWord(textToJson):
 
     wordCounter = Counter(wordAmount)
     return wordCounter.most_common(1)[0]
+
+def numAfter5pm(textToJson):
+    return len([(int(data['timestamp'][11:13]) >= 17 or int(data['timestamp'][11:13]) < 4) for data in textToJson])
