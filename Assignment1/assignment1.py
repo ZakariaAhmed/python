@@ -13,5 +13,3 @@ allColumns = allStocks.columns
 
 # hent alle unikke navne, dvs henter alle de forskellige aktiers navne
 stockNames = allStocks.Name.unique()
-
-print(stockNames)
