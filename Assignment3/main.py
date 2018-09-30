@@ -2,6 +2,7 @@ import downloader as dw
 import os
 import sys
 import dataToArray as dta
+import allStats 
 
 if __name__ == '__main__':
     try:
@@ -16,4 +17,4 @@ if __name__ == '__main__':
             sys.exit(1)    
     dw.downloader(url, to_file)
     dataSet = dta.dataToArray('NCHS_-_Leading_Causes_of_Death__United_States.csv')
-    print(dataSet)
+    allStats.mostDeath(dataSet, 2016, "All causes")
